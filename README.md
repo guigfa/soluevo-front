@@ -23,7 +23,7 @@ Soluevo Teste - Front End é uma aplicação web desenvolvida com Angular 18, pr
 ## **Como Executar:**
 
 1.  Clone o repositório do Soluevo Teste - Front End.
-2.  Navegue até o diretório do projeto `cd soluevo-teste-frontend`.
+2.  Navegue até o diretório do projeto `cd soluevo-front`.
 3.  Instale as dependências utilizando o comando `npm install`.
 4.  Inicie a aplicação com o comando `npm start`.
 5.  Abra seu navegador e acesse `http://localhost:4200` para visualizar a aplicação.
