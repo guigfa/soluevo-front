@@ -1,0 +1,9 @@
+@import '../../../../../theming/design-tokens.scss';
+
+:host {
+    .card {
+        background-color: #F4F5F7;
+        cursor: pointer;
+        flex: 1 1 200px;    
+    }
+}

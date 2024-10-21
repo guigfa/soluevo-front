@@ -1,0 +1,8 @@
+<div class="image-bg breadcrumb p-4 gap-4 d-flex align-items-center">
+    @for(breadcrumb of breadcrumbs; track breadcrumb.trackBy; let last = $last) {
+        <span [ngClass]="{'grey': !last, 'side-bar': last}">{{ breadcrumb.label }}</span>
+        @if(!last) {
+            <mat-icon class="d-flex align-items-center">arrow_forward_ios</mat-icon>
+        }
+    }
+</div>

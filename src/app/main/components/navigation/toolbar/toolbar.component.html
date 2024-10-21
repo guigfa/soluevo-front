@@ -1,0 +1,13 @@
+<mat-toolbar style="background-color: transparent;" class="d-flex align-items-center justify-content-between p-4">
+    <p class="fw-bold h2 m-0">VR Shopping</p>
+    <div class="pages d-flex gap-4">
+        @for(page of pages; track page) {
+            <a href="#">{{ page }}</a>
+        }
+    </div>
+    <div class="icons d-flex gap-4">
+        @for(icon of icons; track icon; let last = $last) {
+            <mat-icon (click)="last ? openCart() : null">{{ icon }}</mat-icon>
+        }
+    </div>
+</mat-toolbar>

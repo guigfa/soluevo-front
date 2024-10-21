@@ -1,0 +1,27 @@
+@if(isCartOpen$ | async) {
+    <app-cart></app-cart>
+    <div class="overlay" (click)="toggleCart()"></div>
+}
+@if(product$ | async; as product) {
+    <app-breadcrumbs [breadcrumbs]="breadcrumbs" />
+    
+    <div class="container pt-4 pb-4">
+        <div class="d-flex flex-wrap">
+            <app-images class="section" [isNew]="product.isNew" [promotion]="product.promotion" [images]="product.images"></app-images>
+            <app-main-section class="section" [product]="product"></app-main-section>
+        </div>
+
+        <div class="line"></div>
+        
+        <app-details 
+            [additionalInformation]="product.additionalInformation" 
+            [specifications]="product.specifications"
+            [images]="product.images"
+            [longDescription]="product.longDescription"
+            [reviews]="product.reviews" 
+        />
+        <div class="line"></div>
+
+        <app-related-products [productsIds]="product.relatedProducts" />
+    </div>
+}

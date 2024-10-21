@@ -1,0 +1,31 @@
+:host {
+  .image-container {
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .mini {
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
+  }
+
+  .max {
+    width: 30rem;
+    height: 30rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :host {
+    .mini {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    .max {
+      width: 70vw;
+      height: 70vw;
+    }
+  }
+}

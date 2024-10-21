@@ -1,0 +1,67 @@
+@import '../../../../../theming/variables.scss';
+
+:host {
+    .size {
+        border-radius: 5px;
+        border: 1px solid $color-offwhite;
+        cursor: pointer;
+        
+        p {
+            margin: 0;
+        }
+    }
+
+    .color {
+        border-radius: 100px;
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid $color-offwhite;
+    }
+
+    .details {
+        font-weight: 400;
+        font-size: 1rem;
+        color: $color-grey;
+    }
+
+    .active {
+        background-color: $color-darkgold;
+        color: $color-white;
+    }
+
+    ::ng-deep .mat-mdc-form-field-infix {
+        display: flex;
+    }
+
+    ::ng-deep .mat-mdc-form-field-bottom-align {
+        display: none;
+    }
+
+    mat-form-field {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    input[matInput] {
+        text-align: center;
+    }
+    
+    mat-icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    :host {
+        .purchase {
+            flex-direction: column;
+            mat-form-field {
+                width: 80% !important;
+            }
+        }
+    }
+}

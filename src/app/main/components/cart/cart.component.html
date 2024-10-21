@@ -1,0 +1,61 @@
+<div class="cart p-4">
+    <div class="d-flex justify-content-between">
+        <p class="h4 fw-semibold">Minha Sacola</p>
+        <mat-icon (click)="toggle()">shopping_bag</mat-icon>
+    </div>
+    <div class="line"></div>
+    @if(cart.items.length) {
+        <div class="d-flex justify-content-between flex-column h-90">
+            <div class="overflow-auto">
+                @for(item of cart.items; track item) {
+                    <div class="d-flex pt-4 pb-4 justify-content-between align-items-center">
+                        <img [src]="item.product.images[0]" alt="product" class="image-bg image-container">
+                        <div class="d-flex flex-column justify-content-center">
+                            <p>{{ item.product.name }}</p>
+                            <div class="">
+                                <span>{{ item.quantity }} x </span>
+                                <span class="price">{{ item.price  | currency: 'BRL':'symbol':'1.2-2' }}</span>
+                            </div>
+                        </div>
+                        <mat-icon (click)="remove(item.product.id)">cancel</mat-icon>
+                    </div>
+                }
+            </div>
+            
+            <div class="d-flex flex-column gap-4">
+                <div class="subtotal d-flex w-75 align-items-center gap-2 justify-content-between">
+                    <p class="h6">Subtotal</p>
+                    <p class="price fw-600">{{ cart.value | currency: 'BRL':'symbol':'1.2-2' }}</p>
+                </div>
+                <div class="line"></div>
+                <div class="d-flex gap-2">
+                    <app-button 
+                        [label]="'Sacola'" 
+                        [color]="'black'" 
+                        [fontSize]="'xxs'" 
+                        [radius]="'half'" 
+                        [spacing]="'cart'" 
+                    />
+                    <app-button 
+                        [label]="'Pagar'" 
+                        [color]="'black'" 
+                        [fontSize]="'xxs'" 
+                        [radius]="'half'" 
+                        [spacing]="'cart'" 
+                    />
+                    <app-button 
+                        [label]="'Comparar'" 
+                        [color]="'black'" 
+                        [fontSize]="'xxs'" 
+                        [radius]="'half'" 
+                        [spacing]="'cart'" 
+                    />
+                </div>
+            </div>
+        </div>
+    } @else {
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <p class="h6">Sua sacola está vazia</p>
+        </div>
+    }
+</div>

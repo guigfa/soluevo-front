@@ -1,0 +1,17 @@
+@import '../../../../../theming/design-tokens.scss';
+
+:host {
+    .breadcrumb {
+        padding: 2rem 4rem !important;
+    }
+    div {
+        span {
+            cursor: pointer;
+        }
+
+        mat-icon {
+            font-size: 1rem;
+            width: fit-content;
+        }
+    }
+}

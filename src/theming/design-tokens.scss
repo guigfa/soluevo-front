@@ -1,0 +1,116 @@
+@import 'variables';
+@import 'mixins';
+
+img {
+    object-fit: contain;
+}
+
+// Cores
+.image-bg {
+    background-color: $color-background;
+}
+
+.grey {
+    color: $color-grey;
+}
+
+.grey-bg {
+    background-color: $color-grey;
+}
+
+.almost-black {
+    color: $color-almostblack;
+}
+
+.price {
+    color: $color-darkgold;
+}
+
+.fs-double {
+    font-size: $font-size-double;
+}
+
+.fs-default {
+    font-size: $font-size-default;
+}
+
+.fw-600 {
+    font-weight: $font-weight-mediumbold;
+}
+
+.fw-700 {
+    font-weight: $font-weight-medium;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: $color-grey;
+}
+
+.side-bar {
+    padding-left: 1rem;
+    border-left: 2px solid $color-grey;
+}
+
+.stroked {
+    text-decoration: line-through;
+    color: $color-lightgrey;
+}
+
+.star {
+    width: fit-content;
+    font-size: 2rem;
+    color: gray; 
+    position: relative; 
+
+    &.filled {
+        color: $color-gold; 
+    }
+
+    &.half-filled::before {
+        content: '★'; 
+        color: $color-gold; 
+        position: absolute;
+        width: 50%; 
+        overflow: hidden; 
+    }
+}
+
+.vw-100 {
+    width: 100vw;
+}
+
+.badge {
+    &-new {
+        @include badge-styles($color-aqua-green);
+    }
+
+    &-promotion {
+        @include badge-styles($color-salmon);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px; 
+}
+
+::-webkit-scrollbar-track {
+    background: $color-offwhite; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $color-lightgrey; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: $color-grey;
+}
+
+* {
+    scrollbar-width: thin; 
+    scrollbar-color: $color-grey $color-offwhite; 
+}

@@ -1,0 +1,61 @@
+@import '../../../../theming/variables.scss';
+@import '../../../../theming/mixins.scss';
+
+:host {
+    button {
+        background-color: transparent;
+    }
+
+    .color-darkgold {
+        @include buttonColor($color-darkgold);
+    }
+    
+    .color-lightgold {
+        @include buttonColor($color-gold);
+    }
+    
+    .radius-default {
+        @include buttonRadius(4px);
+    }
+
+    .radius-half {
+        @include buttonRadius($border-radius-half);
+    }
+    
+    .radius-large {
+        @include buttonRadius($border-radius-large); 
+    }
+    
+    .radius-none {
+        @include buttonRadius($border-radius-none);
+    }
+    
+    .font-size-default {
+        @include fontSize($font-size-default);
+    }
+
+    .font-size-xs {
+        @include fontSize($font-size-xs);
+    }
+
+    .font-size-xxs {
+        @include fontSize($font-size-xxs);
+    }
+    
+    .font-size-double {
+        @include fontSize($font-size-double); 
+    }
+    
+    .spacing-load {
+        @include buttonSpacing($btn-spacing-load);
+    }
+    
+    .spacing-send {
+        @include buttonSpacing($btn-spacing-send);
+    }
+    
+    .spacing-cart {
+        @include buttonSpacing($btn-spacing-cart);
+    }
+}    
+

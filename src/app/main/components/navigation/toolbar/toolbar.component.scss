@@ -1,0 +1,20 @@
+:host {
+    a {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        text-decoration: none;
+        color: black;
+    }
+
+    mat-icon {
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 768px) {
+        .pages {
+            display: none !important;            
+        }
+}

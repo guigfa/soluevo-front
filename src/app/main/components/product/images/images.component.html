@@ -1,0 +1,22 @@
+<div class="d-flex gap-4 align-items-start h-100">
+  <div class="d-flex flex-column gap-4">
+    @for(image of images; track i; let i = $index) {
+    <div class="image-bg image-container">
+      <img 
+        [src]="image" 
+        (click)="changeImage(image)" 
+        alt="Miniatura" 
+        class="image  mini"/>
+    </div>
+    }
+  </div>
+  <div class="image-bg image-container">
+    @if(isNew) {
+      <div class="badge-new">Novo</div>
+    }
+    @if(promotion) {
+      <div class="badge-promotion">{{ promotion + '%' }}</div>
+    }
+    <img class="image max" [src]="currentImage" alt="Imagem Principal" />
+  </div>
+</div>

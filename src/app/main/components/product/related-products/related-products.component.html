@@ -1,0 +1,41 @@
+
+<div class="d-flex justify-content-center align-items-center flex-column pt-4 gap-4">
+    @if(products$ | async; as products) {
+        <p class="h3">Produtos relacionados</p>
+        <div class="d-flex justify-content-between gap-4 flex-wrap">
+            
+            @for(product of products.slice(0, visibleProducts); track product.id) {
+                <div (click)="redirect(product.id)" class="d-flex flex-column align-items-start card pointer">
+                    @if(product.isNew) {
+                        <div class="badge-new">Novo</div>
+                    }
+                    @if(product.promotion) {
+                        <div class="badge-promotion">{{ product.promotion + '%' }}</div>
+                    }
+                    <img height="225px" [src]="product.images[0]" alt="Imagem do Produto" class="w-100"/>
+                    <div class="p-2">
+                        <p class="h4 almost-black fw-bold">{{ product.name }}</p>
+                        <p class="grey fw-semibold">{{ product.veryShortDescription }}</p>
+                        <div class="d-flex gap-2">
+                            @if(product.promotion) {
+                                <p class="h5 fw-600">{{ (product.price - (product.price * (product.promotion / 100))) | currency: 'BRL':'symbol':'1.2-2' }}</p>
+                            }
+                            <p [ngClass]="product.promotion ? 'stroked' : 'fw-600 h5'">{{ product.price | currency: 'BRL':'symbol':'1.2-2' }}</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        
+        @if(visibleProducts < products.length) {
+            <app-button 
+                (handleClick)="loadMore()" 
+                [radius]="'default'" 
+                [spacing]="'load'" 
+                [color]="'darkgold'" 
+                [fontSize]="'default'" 
+                [label]="'Carregar mais'" 
+            />
+        }
+    }
+</div>

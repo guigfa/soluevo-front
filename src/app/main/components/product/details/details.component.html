@@ -1,0 +1,47 @@
+<div class="main h-50 d-flex flex-column align-items-center justify-content-start">
+    <div class="d-flex align-items-center justify-content-center gap-4">
+        @for(section of sections; track section.param) {
+            <p class="h5 grey pt-4 fw-normal" [ngClass]="{'active': selectedSection === section.param}" (click)="redirect(section.param)">{{ section.label }}</p>
+        }
+    </div>
+
+    @if(selectedSection === 'description') {
+        <p class="grey">{{ longDescription }}</p>
+        <div class="w-50 gap-4 d-flex h-50 justify-content-center p-4">
+            <img class="image-bg" [src]="images[0]" />
+            <img class="image-bg" [src]="images[1]" />
+        </div>
+    } @else if(selectedSection === 'additional') {
+        <p class="grey">{{ longDescription }}</p>
+        <div class="d-flex">
+            @for(specification of specifications; track specification.title) {
+                <div class="p-4">
+                    <p class="h4">{{ specification.title }}</p>
+                    <ul>
+                        @for(spec of specification.spec; track spec) {
+                            <li class="grey">{{ spec }}</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    } @else {
+        @for(review of reviews; track review.id) {
+            <div class="p-4">
+                <div class="d-flex gap-2 rating">
+                    <p class="h4">{{ review.title }}</p>
+                    @for(star of stars; track i; let i = $index) {
+                        <span class="star" [ngClass]="{
+                            'filled': i < Math.floor(review.rating), 
+                            'half-filled': i === Math.floor(review.rating) && (review.rating % 1) !== 0
+                        }">
+                            ★
+                        </span>
+                    }
+                </div>
+                <p>{{ review.description }}</p>
+            </div>
+        }
+    }
+
+</div>
